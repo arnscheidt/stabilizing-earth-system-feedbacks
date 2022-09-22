@@ -113,7 +113,7 @@ def haar_v2(t,x,a,epsilon,res):
 ############################################
 
 # put all times in same units, 
-# and perform temperature scaling according to Hansen et al. (2013) 
+# and perform temperature scaling according to Hansen et al. (2013) (see also Materials and Methods) 
 # I apologize for the repetitive code here. If you want to edit it, I recommend using find/replace features - CWA
 
 t_ats = (ats[:,0]>-900)
@@ -209,7 +209,7 @@ lr04_col = (0.3,0.3,1)
 h06_col = (0.45,0.45,1)
 pa13_col = (0.6,0.6,1)
 
-# truncate fastest fluctuations (see discussion in Methods)
+# truncate fastest fluctuations (see discussion in Materials and Methods)
 cen_ind = c_cen[0]>4000
 z08_ind = c_z08>4000
 
@@ -259,20 +259,6 @@ plt.text(10**6.9,0.5,r'$H=0.5$',color=h_col_text,fontsize=20)
 plt.text(10**4.7,0.125,r'$H\simeq0$?',color=h_col_text,ha='center',fontsize=20)
 plt.text(10**2.5,0.7,r'$H=0.6$',color=h_col_text,fontsize=20)
 
-# labels
-#vspacefactor=1.3
-#plt.text(10**3,1.8*vspacefactor,r'ocean',color=(0,0,0),ha='center',fontsize=16)
-#plt.text(10**3,1.8,r'mixing',color=(0,0,0),ha='center',fontsize=16)
-#
-#plt.text(30000,1.8*vspacefactor,r'\textit{Plio-Pleistocene}',color=lr04_col,ha='center',fontsize=16)
-#plt.text(30000,1.8,r'\textit{glacial cycles}',color=lr04_col,ha='center',fontsize=16)
-#
-#plt.text(200000,0.06*vspacefactor,r'silicate',color=(0,0,0),ha='center',fontsize=16)
-#plt.text(200000,0.06,r'weathering',color=(0,0,0),ha='center',fontsize=16)
-#
-#plt.text(10000,0.06*vspacefactor,r'carbonate',color=(0,0,0),ha='center',fontsize=16)
-#plt.text(10000,0.06,r'compensation',color=(0,0,0),ha='center',fontsize=16)
-
 plt.xlim(10**2,10**8)
 plt.ylim(0.05,7)
 
@@ -293,10 +279,10 @@ cen3,=plt.plot(c_cen[3][:],v_cen[3][:],linewidth=lw2,linestyle='--',label=divisi
 lfsize = 14
 first_legend = plt.legend(handles=[z08,wes20,cen1,cen2,cen3], loc='lower right',fontsize=lfsize)
 ax = plt.gca().add_artist(first_legend)
-#second_legend = plt.legend(handles=[cen1,cen2,cen3], loc='lower right',fontsize=lfsize)
-#ax = plt.gca().add_artist(second_legend)
 
 plt.legend(handles=[lr04,h06,pa13], loc='upper left',fontsize=lfsize)
+
+# plot various feedbacks, signs, and timescales
 
 ax2 = plt.subplot2grid((3,1),(2,0),rowspan=1)
 plt.xlim(10**2,10**8)
@@ -305,11 +291,8 @@ plt.ylim(0,1)
 ax2.set_xscale("log")
 
 ax2.set_yticks([])
-#ax2.set_xticks([10**2,10**3,10**4,10**5,10**6,10**7,10**8])
 ax2.set_xticks([])
 plt.minorticks_off()
-#ax2.set_xticklabels([])
-#plt.xlabel(r'$\Delta t$ (years)')
 
 fs=16
 plt.text(10**2.8,0.15,r"ocean mixing ($-$)",ha='center',va='center',fontsize=fs)

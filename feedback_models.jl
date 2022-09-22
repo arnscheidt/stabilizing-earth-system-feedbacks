@@ -68,5 +68,5 @@ data2[:,3] = sol[2,:]
 data2[:,4] = sol[3,:] 
 data2[:,5] = sol[4,:] 
 
-writedlm("feedback_model_2.csv",data2,',')
+writedlm("feedback_model_output.csv",data2,',')
 

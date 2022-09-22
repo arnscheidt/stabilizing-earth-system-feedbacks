@@ -62,7 +62,7 @@ res = 6
 
 # IMPORT MODEL DATA FROM CSV FILES
 
-#model4 = np.loadtxt('feedback_model_2.csv',dtype=float,delimiter=',')
+#model4 = np.loadtxt('feedback_model_output.csv',dtype=float,delimiter=',')
 #
 #hf2_c1 = haar_v2(model4[:,0],model4[:,1],a,0.25,res)
 #hf2_c2 = haar_v2(model4[:,0],model4[:,2],a,0.25,res)
@@ -73,24 +73,6 @@ res = 6
 #np.save('hf_sum_2',[hf2_c1,hf2_c2,hf2_c3,hf2_c4,hf2_sum])
 
 hf2_c1,hf2_c2,hf2_c3,hf2_c4,hf2_sum = np.load('hf_sum_2.npy')
-
-## truncate fluctuations with few data points
-#fac = 10
-#
-#inds2_c1 = (hf2_c1[2]>(np.median(hf2_c1[2])/fac))*(hf2_c1[2]<(fac*np.median(hf2_c1[2])))
-#inds2_c2 = (hf2_c2[2]>(np.median(hf2_c2[2])/fac))*(hf2_c2[2]<(fac*np.median(hf2_c2[2])))
-#inds2_c3 = (hf2_c3[2]>(np.median(hf2_c3[2])/fac))*(hf2_c3[2]<(fac*np.median(hf2_c3[2])))
-#inds2_c4 = (hf2_c3[2]>(np.median(hf2_c3[2])/fac))*(hf2_c3[2]<(fac*np.median(hf2_c3[2])))
-#inds2_sum = (hf2_sum[2]>(np.median(hf2_sum[2])/fac))*(hf2_sum[2]<(fac*np.median(hf2_sum[2])))
-
-#for i in range(0,3):
-#    hf1_c1[i][~inds1_c1]=np.nan
-#    hf1_c2[i][~inds1_c2]=np.nan
-#    hf1_sum[i][~inds1_sum]=np.nan
-#    hf2_c1[i][~inds2_c1]=np.nan
-#    hf2_c2[i][~inds2_c2]=np.nan
-#    hf2_c3[i][~inds2_c3]=np.nan
-#    hf2_sum[i][~inds2_sum]=np.nan
 
 ############################################
 # PLOT FIGURE 
@@ -131,9 +113,6 @@ plt.text(10**2.4,0.22,r'1 kyr feedback',rotation=54,color=col1,fontsize=16)
 plt.text(10**4.5,0.6,r'10 kyr feedback',rotation=0,color=col3,fontsize=16,horizontalalignment='center')
 plt.text(10**6.3,0.27,r'100 kyr feedback',rotation=-48,color=col2,fontsize=16,horizontalalignment='center')
 plt.text(10**2.5,0.45,r'sum',rotation=50,color=col_sum,fontsize=16,horizontalalignment='center')
-
-#plt.text(10**4.05,0.2,r'100 kyr feedback',rotation=59,color=col3,fontsize=16)
-#plt.text(10**3,0.65,r'combined',rotation=59,color=col_sum,fontsize=16)
 
 plt.ylim(0.2,3.1)
 plt.xlim(10**(1.8),10**7.2)
