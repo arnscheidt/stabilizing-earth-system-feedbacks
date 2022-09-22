@@ -1,4 +1,4 @@
-This code replicates results from Arnscheidt and Rothman: Presence or absence of long-term stabilizing Earth system feedbacks
+This code replicates results from Arnscheidt and Rothman: Presence or absence of long-term stabilizing Earth system feedbacks (2022).
 
 data_analysis.py reads data provided in the isotope_data folder and analyzes how the typical amplitudes of temperature fluctuations depend on their timescale.
 
